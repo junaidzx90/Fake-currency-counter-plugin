@@ -1,0 +1,87 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+.cnumcounter_box {
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.ccbox {
+    display: none;
+}
+
+span.cnumcounter {
+    font-family: 'Libre Franklin';
+    font-size: 5em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0;
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.counterLoading {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.dots {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.dot7 .dot {
+    animation: anim7 0.5s ease alternate infinite;
+    border-radius: 50%;
+}
+
+.dot7 .dot:nth-child(1) {
+    animation-delay: 0.25s;
+}
+
+.dot7 .dot:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.dot7 .dot:nth-child(3) {
+    animation-delay: 0.75s;
+}
+
+.dot7 .dot:nth-child(4) {
+    animation-delay: 1s;
+}
+
+@keyframes anim7 {
+    0% {
+        transform: translateZ(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateZ(-30px);
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
