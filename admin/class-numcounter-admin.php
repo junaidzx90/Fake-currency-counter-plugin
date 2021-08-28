@@ -77,12 +77,20 @@ class NUMCounter_Admin {
 		// Increment Value
 		add_settings_field( 'counter_increment_value', 'Increment by (Max)', [$this,'counter_increment_value_cb'], 'counter_settings_page', 'counter_settings_section');
 		register_setting( 'counter_settings_section', 'counter_increment_value');
+		// Currency
+		add_settings_field( 'counter_currency', 'Currency', [$this,'counter_currency_cb'], 'counter_settings_page', 'counter_settings_section');
+		register_setting( 'counter_settings_section', 'counter_currency');
+		// Font size
+		add_settings_field( 'counter_fontsize', 'Font size', [$this,'counter_fontsize_cb'], 'counter_settings_page', 'counter_settings_section');
+		register_setting( 'counter_settings_section', 'counter_fontsize');
+
 		// Color Left
 		add_settings_field( 'counter_color_left', 'Color Left', [$this,'counter_color_left_cb'], 'counter_settings_page', 'counter_settings_section');
 		register_setting( 'counter_settings_section', 'counter_color_left');
 		// Color Right
 		add_settings_field( 'counter_color_right', 'Color Right', [$this,'counter_color_right_cb'], 'counter_settings_page', 'counter_settings_section');
 		register_setting( 'counter_settings_section', 'counter_color_right');
+		
 	}
 
 	function numcounter_option_page(){
@@ -92,6 +100,7 @@ class NUMCounter_Admin {
 			<hr>
 			<div class="counter-content">
 				<form style="width: 30%" method="post" action="options.php">
+					
 					<table class="widefat">
 					<?php
 					settings_fields( 'counter_settings_section' );
@@ -113,6 +122,7 @@ class NUMCounter_Admin {
 		delete_option('counter_increment_value');
 		delete_option('counter_color_left');
 		delete_option('counter_color_right');
+		delete_option('numcounter_count');
 	
 		echo 'Success';
 		die;
@@ -146,12 +156,22 @@ class NUMCounter_Admin {
 
 	function counter_increment_value_cb(){
 		echo '<input class="widefat" type="number" placeholder="100" name="counter_increment_value" value="'.get_option('counter_increment_value').'">';
-		echo '<p>Note: Default increments in <b>(1-100)</b> randomly.</p>';
+		echo '<p>Note: Default incrementing in <b>(1-100)</b> randomly.</p>';
 	}
+
+	function counter_currency_cb(){
+		echo '<input type="text" placeholder="$" name="counter_currency" value="'.get_option('counter_currency').'">';
+	}
+
+	function counter_fontsize_cb(){
+		echo '<input type="number" placeholder="75px" name="counter_fontsize" value="'.get_option('counter_fontsize').'">';
+	}
+
 	function counter_color_left_cb(){
 		echo '<input type="color" name="counter_color_left" value="'.get_option('counter_color_left','#673ab7').'">';
 	}
+	
 	function counter_color_right_cb(){
-		echo '<input type="color" name="counter_color_right" value="'.get_option('counter_color_right','#f44336').'">';
+		echo '<input type="color" name="counter_color_right" value="'.get_option('counter_color_right','#f44336').'"> <strong style="user-select: none">Shortcode: </strong>[numcounter]';
 	}
 }

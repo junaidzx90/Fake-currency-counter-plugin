@@ -74,7 +74,7 @@ class NUMCounter_Public {
 				setInterval(function(){
 					$('.cnumcounter span').load("<?php echo $loadUrl ?>", function(){
 						$('.counterLoading').hide()
-						$('.ccbox').fadeIn()
+						$('.ccbox').css('display', 'flex')
 					})
 				}, 1000);
 			});
@@ -97,7 +97,7 @@ class NUMCounter_Public {
 				</div>
 			</div>
 			<div class="ccbox">
-				<span style="background-image: linear-gradient(45deg, <?php echo $leftcolor ?>, <?php echo $rightcolor ?>);" class="cnumcounter"> $ <span>00000000</span></span>
+				<strong style="background-image: linear-gradient(255deg, <?php echo $leftcolor ?> 25%, <?php echo $rightcolor ?>); font-size: <?php echo get_option('counter_fontsize','75') ?>px" class="cnumcounter"> <?php echo get_option('counter_currency')?get_option('counter_currency'):'$' ?> <span>00000000</span></strong>
 			</div>
 		</div>
 		<?php

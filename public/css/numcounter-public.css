@@ -2,7 +2,9 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 .cnumcounter_box {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     width: fit-content;
     margin: 0 auto;
@@ -10,12 +12,13 @@
 
 .ccbox {
     display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-span.cnumcounter {
-    font-family: 'Libre Franklin';
-    font-size: 5em;
-    font-weight: 600;
+strong.cnumcounter {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     margin-bottom: 0;
     background-size: 100%;
@@ -24,6 +27,13 @@ span.cnumcounter {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
+    -webkit-text-stroke-width: .4px;
+    -webkit-text-stroke-color: #fff;
+    -moz-text-stroke-width: .4px;
+    -moz-text-stroke-color: #fff;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: 3px;
 }
 
 .counterLoading {
@@ -48,8 +58,6 @@ span.cnumcounter {
     width: 20px;
     height: 20px;
 }
-
-
 
 .dot7 .dot {
     animation: anim7 0.5s ease alternate infinite;
